@@ -14,7 +14,6 @@
     darwinConfigurations."2020m1" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
-        home-manager.darwinModules.home-manager
         ./hosts/2020m1/default.nix
       ];
     };
