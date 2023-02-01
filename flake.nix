@@ -11,7 +11,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin }: {
-    darwinConfigurations."2020m1" = darwin.lib.darwinSystem {
+    darwinConfigurations."h-macbook-m1" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./hosts/2020m1/default.nix
