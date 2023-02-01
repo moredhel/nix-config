@@ -25,22 +25,45 @@
   home-manager.useUserPackages = true;
   home-manager.users.hamishhutchings = { pkgs, ... }: {
 
-    stateVersion = "22.05"; # read below
+    programs.home-manager.enable = true;
+    home.stateVersion = "22.05"; # read below
 
     programs.tmux = { # my tmux configuration, for example
       enable = true;
       keyMode = "vi";
       clock24 = true;
       historyLimit = 10000;
+      prefix = "M-b";
       plugins = with pkgs.tmuxPlugins; [
-        vim-tmux-navigator
-        gruvbox
+        # vim-tmux-navigator
+        yank
+        pain-control
+        {
+			plugin = dracula;
+			extraConfig = ''
+				set -g @dracula-refresh-rate 10
+				set -g @dracula-show-battery false
+				set -g @dracula-show-powerline true
+                set -g @dracula-cpu-usage true
+                set -g @dracula-military-time true
+                set -g @dracula-ram-usage true
+                set -g @dracula-show-fahrenheit false
+			'';
+		}
       ];
       extraConfig = ''
-        new-session -s main
-        bind-key -n C-a send-prefix
       '';
     };
+
+    home.packages = with pkgs; [
+      direnv
+      emacs
+      fzf
+      git
+      starship
+      vim
+      silver-searcher
+    ];
   };
 
 
@@ -62,6 +85,6 @@
   };
 
   system.defaults = {
-    dock.autohide = true;
+    dock.autohide = false;
   };
 }
