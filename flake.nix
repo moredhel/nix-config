@@ -12,7 +12,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin }: {
-    darwinConfigurations."h-macbook-m1" = darwin.lib.darwinSystem {
+    darwinConfigurations."H-Macbook-M1" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         home-manager.darwinModules.home-manager

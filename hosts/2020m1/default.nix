@@ -62,7 +62,15 @@
       git
       starship
       vim
+      ripgrep
       silver-searcher
+      jq
+      httpie
+      flyctl
+      htop
+
+      # cleanup
+      go
     ];
   };
 
@@ -78,9 +86,10 @@
      # "hammerspoon"
      "rectangle"
      "alfred"
+     "stoplight-studio"
      # "logseq"
      # "discord"
-     # "iina"
+     "vlc"
    ];
   };
 
